@@ -38,7 +38,9 @@ public class IntSortTest
 
     //сортируем массив и замеряем время работы
     long startTime = System.nanoTime();
-    IntSort.sort(array);
+    IntSort toSort = new IntSort(array);
+
+    toSort.sort();
     long estimatedTime = System.nanoTime() - startTime;
     System.out.println("Execution time(ms) " + (estimatedTime/ 1000000));
 
@@ -50,25 +52,25 @@ public class IntSortTest
     }
   }
 
-  @Test
-  public void testSortList() throws Exception {
-    int array[] = generateRandomIntArray(ARRAY_SIZE, SEED);
-    List<Integer> list = new ArrayList<Integer>(ARRAY_SIZE);
-    for (int i: array) {
-      list.add(Integer.valueOf(i));
-    }
+ // @Test
+ // public void testSortList() throws Exception {
+ // int array[] = generateRandomIntArray(ARRAY_SIZE, SEED);
+ // List<Integer> list = new ArrayList<Integer>(ARRAY_SIZE);
+ // for (int i: array) {
+ //   list.add(Integer.valueOf(i));
+ //   }
 
     //сортируем массив и замеряем время работы
-    long startTime = System.nanoTime();
-    IntSort.sort(list);
-    long estimatedTime = System.nanoTime() - startTime;
-    System.out.println("Execution time(ms) " + (estimatedTime/ 1000000));
+  //  long startTime = System.nanoTime();
+  //   IntSort.sort(list);
+  //  long estimatedTime = System.nanoTime() - startTime;
+  //  System.out.println("Execution time(ms) " + (estimatedTime/ 1000000));
 
     // проверяем правильность сортировки
-    int previousValue = Integer.MIN_VALUE;
-    for (int i = 0; i < list.size() ; i++) {
-      assertTrue("Element " + list.get(i) + " at " + i + " position is not in the order", list.get(i) >= previousValue);
-      previousValue = list.get(i);
-    }
-  }
+  //  int previousValue = Integer.MIN_VALUE;
+  //  for (int i = 0; i < list.size() ; i++) {
+  //    assertTrue("Element " + list.get(i) + " at " + i + " position is not in the order", list.get(i) >= previousValue);
+  //    previousValue = list.get(i);
+  //  }
+  // }
 }
